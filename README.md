@@ -1,2 +1,4 @@
 # project-planning-docs
 This repository contains all planning materials, design specifications, feature breakdowns, architectural diagrams, timelines, and implementation roadmaps
+<img width="1266" height="887" alt="Architecture - Level1" src="https://github.com/user-attachments/assets/4eee43ff-c6e2-4891-8ee2-24a509688c86" />
+<img width="1913" height="862" alt="Architecture - Level3" src="https://github.com/user-attachments/assets/a8a7e7f5-216b-4a7e-a728-2e4e833598b1" />
