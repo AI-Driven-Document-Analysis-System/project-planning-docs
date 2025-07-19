@@ -1,0 +1,54 @@
+START (When the user uploads documents)
+---------------------------------------------------------------------------------------------------------------------------------------------
+1.Document Service
+==============================================
+User uploads document through React dashboard 
+→ FastAPI gateway receives request 
+→ Document Service stores file in MinIO 
+  and creates metadata entry in PostgreSQL.
+                -- documents
+                -- document_processing(status: 'uploaded') DB records 
+
+
+2.OCR 
+=============================
+Layout Analysis identifies regions (headers, paragraphs, tables, images) 
+ → OCR Service extracts text from identified text regions 
+ → Combines OCR results with layout structure 
+ → Inserts extracted text into document_content.extracted_text 
+ → Stores layout structure in document_content.layout_sections 
+ → Updates document_processing.ocr_completed_at timestamp
+
+
+3.Parallel Processing (all three run simultaneously using OCR output):
+====================================================================
+Classification Service → categorizes document type using BERT -> writes to document_classifications table
+Summarization Service → generates summary using BART/T5  -> writes to document_summaries table
+Search Service → creates vector embeddings using Sentence-BERT → writes to document_embeddings table + stores vectors in Chroma
+
+then:
+Analytics Service → Analytics Service reads from all tables for metrics
+Updates document_processing table (status: 'completed')
+
+FINISH
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+START (can run at any time-not necessarily when user uploads documents)
+---------------------------------------------------------------------------------------------------------------------------------------------
+User Query Processing
+=====================
+User gives the query("What are my Q1 expenses?")
+Sentence-BERT converts query to embedding
+Chroma finds similar document embeddings
+Chroma returns document IDs with similarity scores
+LangChain fetches actual text content using document IDs from PostgreSQL
+LangChain formats retrieved text as context prompt(Extracts relevant text sections)
+LangChain sends [context + user question] to Llama 2/GPT
+LLM reads context and generates answer: "Q1 expenses total $15,420..."
+Answer returned to user
+
+FINISH
+---------------------------------------------------------------------------------------------------------------------------------------------
