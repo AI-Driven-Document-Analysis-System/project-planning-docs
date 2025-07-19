@@ -34,7 +34,7 @@ CREATE TABLE document_processing (
 CREATE TABLE document_content (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     document_id UUID REFERENCES documents(id) ON DELETE CASCADE,
-    extracted_text TEXT,
+    extracted_text TEXT, -- stores the entire text from the document. Can store up to 1GB of data
     searchable_content TEXT,
     layout_sections JSONB,
     entities_extracted JSONB,
