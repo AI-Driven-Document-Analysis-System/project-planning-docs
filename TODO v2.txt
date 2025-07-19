@@ -1,0 +1,109 @@
+==========================================
+CORE Features (level-1)
+==========================================
+
+Document type classification
+ - eliminates manual sorting
+ - invoices, receipts, contracts, tax forms, medical records, research papers
+ - LayoutLM, DocFormer,Google Document AI,BERT,Hugging Face models, AWS Textract  
+==========================================================================================
+
+Summarization
+ - BART (Facebook),Pegasus (Google), T5 (Google), LongT5/LongBART
+
+==========================================================================================
+
+Layout Analysis
+ - Identify document sections - Headers, paragraphs, tables, images
+ - Without layout analysis, the system treats documents as flat text,
+ - layoutparser + LayoutLMv3 (Best accuracy) OR OpenCV + Tesseract (Simple, fast implementation)
+
+==========================================================================================
+
+Searching and RAG
+ - Vector Database -- Chroma - Simple, lightweight vector database
+ - Text Embeddings -- Sentence-BERT (all-MiniLM-L6-v2)
+ - RAG Framework -- LangChain - Complete RAG pipeline with pre-built components
+ - Language Model -- Llama 2 7B - Open-source, runs locally OR OpenAI GPT-3.5-turbo
+ - Search Implementation -- LangChain + Chroma + Sentence-BERT combinationwhat
+
+
+==========================================
+Additional Features (level-2)
+==========================================
+
+Handwriting recognition capabilities
+ - Handwritten Field Extraction
+   - Extract handwritten names, dates, amounts from forms
+   - Display in searchable structured format
+   - Auto-populate database fields
+ - Form Processing
+   - Process handwritten application forms
+   - Extract checkbox selections and written responses
+   - Convert to structured data for analysis
+ - TrOCR (Microsoft), PaddleOCR,AWS Textract, EasyOCR
+
+==========================================================================================
+
+Document risk assessment scoring
+ - Financial Risk Detection
+   - Score invoices for fraud probability, Identify suspicious payment terms, Flag unusual financial arrangements  
+ - Legal Compliance
+   - Identify documents with legal risks
+   - Flag non-compliant contract terms
+   - Detect missing regulatory requirements 
+ - Medical Document Safety
+   - Detect potential medical errors
+   - Flag critical patient information
+   -  Score treatment risk levels
+ - Security Classification
+   - Assess document sensitivity levels, Identify confidential information leaks, Score documents for access control
+ - FinBERT (Financial risk assessment) , LegalBERT(Legal document risk analysis), ClinicalBERT(Medical document risk assessment)
+
+==========================================================================================
+
+Anomaly Detection in Document Content
+  - Fraud Detection 
+   - Identify forged signatures or altered amounts
+   - Detect unusual invoice patterns
+   - Flag suspicious financial transactions
+  - Other use cases
+  - Isolation Forest, One-Class SVM,PyOD Library,DBSCAN, Autoencoders
+
+==========================================================================================
+
+Automatic Redaction System
+ - Privacy-sensitive content detection (SSN, addresses, phone numbers)
+ - Intelligent masking based on document type
+ - Automatically anonymize sensitive information
+
+ - Microsoft Presidio ( fast identification and anonymization modules for private entities in text such as credit card numbers, names, locations, social security numbers.) 
+
+
+==========================================
+Optional Advanced Features (level-3)
+==========================================
+
+Document Citation Network Analysis
+ - NetworkX with PageRank, Node2Vec (For embeddings) 
+ - Find related research papers,Rank by citation frequency, Suggest related documents based on citation networks, identify influential documents and research trends
+
+==========================================================================================
+
+digitally altered documents,Signature authenticity verification,Watermark and seal validation 
+
+ - ManTra-Net analyzes the complete document(when it's uplaoded as an image) for manipulations like Changed text content,Modified logos or letterheads,Altered signatures,
+Copy-pasted sections from other documents, Removed or added content
+
+ - Copy-Move CNN (Pre-trained for copy-paste detection)
+ - SigNet (Signature authenticity verification)
+ - SIFT/SURF/ORB (Seal feature matching)
+
+==========================================================================================
+
+discover document connections
+ - BERT/RoBERTa - Semantic similarity between document content
+ - Sentence-BERT - Document-level embeddings for similarity
+ - spaCy NER + Entity Matching - Connect documents sharing entities
+
+==========================================================================================
