@@ -2,6 +2,8 @@
 -- A rough database design for PostgressSQL DB
 ------------------------------------------------
 
+-- ====================================== Documents Related =======================================================
+
 -- document meta data
 CREATE TABLE documents (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -14,9 +16,11 @@ CREATE TABLE documents (
     language_detected VARCHAR(10),
     upload_timestamp TIMESTAMP DEFAULT NOW(),
     uploaded_by_user_id UUID,
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
+
 
 -- document processing
 CREATE TABLE document_processing (
@@ -80,6 +84,58 @@ CREATE TABLE document_tags (
     tag_type VARCHAR(20) DEFAULT 'user', -- 'user' or 'auto'
     PRIMARY KEY (document_id, tag)
 );
+
+-- ====================================== User Accounts =======================================================
+
+-- user accounts
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    is_email_verified BOOLEAN DEFAULT FALSE,
+    email_verification_token VARCHAR(255),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ====================================== Subscriptions =======================================================
+
+-- subscription plans
+CREATE TABLE subscription_plans (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(50) NOT NULL,
+    price_monthly DECIMAL(10,2) NOT NULL,
+    price_yearly DECIMAL(10,2),
+    features JSONB NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- user subscription matching table
+CREATE TABLE user_subscriptions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    plan_id UUID REFERENCES subscription_plans(id),
+    status VARCHAR(20) NOT NULL, -- active, cancelled, expired
+    started_at TIMESTAMP NOT NULL,
+    expires_at TIMESTAMP,
+    auto_renew BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- usage limit for some premium services
+CREATE TABLE user_usage_limits (
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    documents_processed_monthly INTEGER DEFAULT 0,
+    handwriting_recognition_used INTEGER DEFAULT 0,
+    risk_assessments_used INTEGER DEFAULT 0,
+    citation_analysis_used INTEGER DEFAULT 0,
+    reset_date DATE NOT NULL,
+    PRIMARY KEY (user_id)
+);
+
 
 -- indexing
 CREATE INDEX idx_documents_type ON document_classifications(document_type);
