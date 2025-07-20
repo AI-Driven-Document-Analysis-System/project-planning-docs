@@ -1,0 +1,53 @@
+graph TB
+    %% Client Layer
+    Client["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+    
+    %% Monolithic Backend Components
+    subgraph Backend["Backend Application Layer "]
+        subgraph Row1[" "]
+            
+            AutoRedaction[Auto Redaction System<br/>Microsoft Presidio<br/>PII Detection]
+            CitationNetwork[Citation Network Analysis<br/>NetworkX/PageRank<br/>Node2Vec]
+            DocumentForgery[Document Authenticity<br/>ManTra-Net/Copy-Move CNN<br/>SigNet/SIFT]
+            ConnectionDiscovery[Document Connections<br/>BERT/RoBERTa<br/>Sentence-BERT/spaCy NER]
+        end
+        subgraph Row2[" "]
+            HandwritingOCR[Handwriting Recognition<br/>TrOCR/PaddleOCR<br/>EasyOCR]
+            RiskAssessment[Risk Assessment Engine<br/>FinBERT/LegalBERT<br/>ClinicalBERT]
+            AnomalyDetection[Anomaly Detection<br/>Isolation Forest<br/>One-Class SVM]
+        end
+        subgraph Row3[" "]
+            FileHandler[File Manager<br/>Upload/Download]
+            Payment[Payment Service<br/>Stripe/PayPal]
+            Subscription[Subscription Manager]                 
+            Auth[Authentication<br/>JWT Manager]
+            
+        end
+        subgraph Row4[" "]
+            
+            OCR[OCR Engine<br/>LayoutLMv3<br/>TrOCR]
+            Classification[Document Classifier<br/>BERT Models]
+            Summarization[Text Summarizer<br/>BART/T5]
+            Search[Search Engine<br/>RAG System<br/>Vector Similarity]
+            AnalyticsEngine[Analytics Engine<br/>]
+        end
+    end
+    
+    %% Data Layer
+    PostgresDB[(PostgreSQL<br/>Docuemnt Meta Data<br/>User data<br/>Processed Results)]
+    VectorDB[(Chroma DB<br/>Document Embeddings)]
+    FileStorage[(MinIO<br/>Documents)]
+    
+    %% Connections
+    Client --> Backend
+    Backend --> PostgresDB
+    Backend --> VectorDB
+    Backend --> FileStorage
+    
+    %% Styling
+    classDef client fill:#e1f5fe,font-size:16px,font-weight:bold
+    classDef component fill:#e8f5e8
+    classDef database fill:#fff3e0
+    
+    class Client client
+    class OCR,Classification,Summarization,Search,Auth,FileHandler,Payment,Subscription,AnalyticsEngine,HandwritingOCR,RiskAssessment,AnomalyDetection,AutoRedaction,CitationNetwork,DocumentForgery,ConnectionDiscovery component
