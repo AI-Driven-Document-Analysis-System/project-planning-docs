@@ -9,15 +9,15 @@ Document type classification
 ==========================================================================================
 
 Summarization
- - BART (Facebook),Pegasus (Google), T5 (Google), LongT5/LongBART
+ - Pegasus (Google),BART (Facebook), T5 (Google), LongT5/LongBART
 
 ==========================================================================================
 
-Layout Analysis
+Layout Analysis + OCR
  - Identify document sections - Headers, paragraphs, tables, images
  - Without layout analysis, the system treats documents as flat text,
- - layoutparser + LayoutLMv3 (Best accuracy) OR OpenCV + Tesseract (Simple, fast implementation)
-
+ - FOR LAYOUT ANALYSIS = LayoutLMv3, DocFormer,LayoutXLM, DiT, TableNet,CRAFT
+ - FOR OCR = layoutparser + LayoutLMv3, PaddleOCR, TrOCR, EasyOCR, OpenCV + Tesseract 
 ==========================================================================================
 
 Searching and RAG
