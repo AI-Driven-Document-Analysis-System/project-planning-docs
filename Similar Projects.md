@@ -9,3 +9,9 @@
 
 3.  [DeepDoctection](https://github.com/deepdoctection/deepdoctection)
    -  This is a powerful Python library designed for document layout analysis, OCR, and information extraction, supporting both scanned images and PDFs. It integrates advanced models like Detectron2, Transformers, and DocTr to analyze document structure, recognize tables, and classify content. The library also supports RAG workflows by enabling extraction and indexing of document data for retrieval tasks. This aligns well with our project’s focus on automating document understanding and making documents searchable and usable.
+
+4.PaperMind
+  -https://github.com/Hedayat-Farahi786/PaperMind
+
+5.Paperless-AI
+  -https://github.com/landing-ai/agentic-doc
