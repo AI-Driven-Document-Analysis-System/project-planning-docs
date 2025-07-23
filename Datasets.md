@@ -23,7 +23,7 @@ This dataset comprises a collection of medical reports images, offering a divers
 )
 
 7.Invoices & Receipts
- -[expressexpense](https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/
+ - [expressexpense](https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/
 )
  -[ICDAR-2019-SROIE](https://github.com/zzzDavid/ICDAR-2019-SROIE/tree/master/data/img
 )
