@@ -23,16 +23,16 @@ This dataset comprises a collection of medical reports images, offering a divers
 )
 
 7.Invoices & Receipts
- [expressexpense](https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/
+ -[expressexpense](https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/
 )
- [ICDAR-2019-SROIE](https://github.com/zzzDavid/ICDAR-2019-SROIE/tree/master/data/img
+ -[ICDAR-2019-SROIE](https://github.com/zzzDavid/ICDAR-2019-SROIE/tree/master/data/img
 )
- [kaggle-ocr-receipts-text-detection](https://www.kaggle.com/datasets/trainingdatapro/ocr-receipts-text-detection
+ -[kaggle-ocr-receipts-text-detection](https://www.kaggle.com/datasets/trainingdatapro/ocr-receipts-text-detection
 )
- [huggingface-invoices-google-ocr](https://huggingface.co/datasets/amaye15/invoices-google-ocr/viewer/default/train?p=2&views%5B%5D=train
+ -[huggingface-invoices-google-ocr](https://huggingface.co/datasets/amaye15/invoices-google-ocr/viewer/default/train?p=2&views%5B%5D=train
 )
- [sroie-datasetv2](https://www.kaggle.com/datasets/urbikn/sroie-datasetv2
+ -[sroie-datasetv2](https://www.kaggle.com/datasets/urbikn/sroie-datasetv2
 )
- [FUNSD](https://guillaumejaume.github.io/FUNSD/download/
+ -[FUNSD](https://guillaumejaume.github.io/FUNSD/download/
 )
- [the-rvlcdip-dataset-test](https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test)
+ -[the-rvlcdip-dataset-test](https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test)
