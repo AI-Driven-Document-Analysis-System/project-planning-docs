@@ -5,4 +5,7 @@
 
 
 2.  [docTR](https://github.com/mindee/doctr)  
-   - This provides a full-stack, end-to-end OCR solution that aligns directly with our project’s CORE Feature - Layout Analysis + OCR. It combines text detection, recognition, and even Key Information Extraction (KIE), making it ideal for extracting structured data from complex documents.
+   - DocTR supports key features like layout analysis, OCR (text detection + recognition), and key information extraction. These features match well with our project goals, which involve understanding document structure and extracting important content from documents like invoices, receipts, and scientific papers.
+
+3.  [DeepDoctection](https://github.com/deepdoctection/deepdoctection)
+   -  This is a powerful Python library designed for document layout analysis, OCR, and information extraction, supporting both scanned images and PDFs. It integrates advanced models like Detectron2, Transformers, and DocTr to analyze document structure, recognize tables, and classify content. The library also supports RAG workflows by enabling extraction and indexing of document data for retrieval tasks. This aligns well with our project’s focus on automating document understanding and making documents searchable and usable.
