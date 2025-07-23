@@ -4,7 +4,7 @@
 1.[RVL-CDIP](https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test)
 The RVL-CDIP (Ryerson Vision Lab Complex Document Information Processing) dataset consists of 400,000 grayscale images in 16 classes, with 25,000 images per class. There are 320,000 training images, 40,000 validation images, and 40,000 test images. 
 
-2.[Medical Lab Reports] (https://www.kaggle.com/datasets/dikshaasinghhh/bajaj)
+2.[Medical Lab Reports](https://www.kaggle.com/datasets/dikshaasinghhh/bajaj)
 This dataset comprises a collection of medical reports images, offering a diverse representation of clinical documentation. It serves as a valuable resource for natural language processing (NLP), OCR detection and extraction, machine learning, and healthcare analytics research.
 
 3.[Research papers
