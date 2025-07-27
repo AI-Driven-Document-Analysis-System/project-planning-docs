@@ -3,5 +3,4 @@ This repository contains all planning materials, design specifications, feature 
 
 ## Architecture with core features.
 Architecture: Client Server.
-<img width="1384" height="888" alt="Architecture - Level1-v3" src="https://github.com/user-attachments/assets/6d7a2fd4-35ce-40ae-9728-ba462fb8ee86" />
-
+<img width="1389" height="856" alt="Architecture - Level1-v3" src="https://github.com/user-attachments/assets/ea2ea9c0-c06b-4968-9588-bb12b3b2e042" />
